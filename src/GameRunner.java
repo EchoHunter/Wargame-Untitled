@@ -14,6 +14,8 @@ public static void main(String[] args) {
 public void setup() {
 	j.add(g);
 	j.addKeyListener(g);
+	j.addMouseListener(g);
+	j.addMouseMotionListener(g);
 	j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	j.setSize(w,h);
 	j.setVisible(true);
