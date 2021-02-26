@@ -201,19 +201,26 @@ public class GameManager extends JPanel implements KeyListener, ActionListener, 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-	
+	mouseX=arg0.getX();
+	mouseY=arg0.getY();
+	checkButton();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-
+		h.clicked = false;
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		mouseX = arg0.getX();
+		mouseY = arg0.getX();
+		if(h.clicked) {
+			h.x = mouseX -h.width/2;
+			h.y=mouseY - h.height/2;
+		}
 		
 	}
 int mouseX = 0;
@@ -221,9 +228,7 @@ int mouseY = 0;
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		mouseX = e.getX();
-		mouseY = e.getY();
-		checkButton();
+		
 	}
 
 	void loadImage(String imageFile) {
@@ -240,14 +245,17 @@ int mouseY = 0;
 	}
 
 void checkButton() {
+	System.out.println(mouseX + " " + mouseY + " " + h.x + " "+h.y);
 	if((mouseX > h.x)&&(mouseX < h.x+h.width)) {
 		if((mouseY > h.y)&&(mouseY< h.y +h.height)){
 			System.out.println("clicked");
 			h.x = mouseX + (h.width / 2);
 			h.y = mouseY + (h.height / 2);
 			repaint();
+			h.clicked = true;
 		}
 	}
+	System.out.println("button checked");
 }
 	void Generate(Graphics g) {
 		

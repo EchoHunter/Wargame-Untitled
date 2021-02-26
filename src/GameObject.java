@@ -14,9 +14,11 @@ public class GameObject {
 		this.height = d;
 		this.originx = o;
 		collisionBox = new Rectangle(a, b, c, d);
+		this.clicked = false;
 	}
 	int originx;
 	int move = 0;
+	boolean clicked;
 	boolean onTable = true;
 
 	void update() {
